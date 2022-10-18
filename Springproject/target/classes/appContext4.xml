@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="sdata1" class="spring.di.ex4.SawonData">
+		<constructor-arg value="김하나"/>
+		<property name="pay" value="2300000"></property>
+		<property name="ipsaday" value="2019-10-10"/>
+	</bean>
+	
+	<bean id="sdata2" class="spring.di.ex4.SawonData">
+		<constructor-arg value="이영희"/>
+		<property name="pay" value="1850000"></property>
+		<property name="ipsaday" value="2018-12-11"/>
+	</bean>
+	
+	
+	
+	<!-- sawon설정 -->
+	<bean name="saw" class="spring.di.ex4.Sawon">
+		<!-- ref태그는 bean의 이름이나 id -->
+		<constructor-arg ref="sdata1"/>
+	</bean>
+	
+	<bean name="saw2" class="spring.di.ex4.Sawon">
+		<!-- ref태그는 bean의 이름이나 id -->
+		<constructor-arg ref="sdata2"/>
+	</bean>	
+</beans>

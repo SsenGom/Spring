@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.db.sist.MyShopDao">
+	<select id="getAlllistOfMyShop" resultType="ShopDto"> <!-- resultType값은 config에 있는 alias이름 -->
+		select * from myshop order by num desc
+	</select>
+</mapper>

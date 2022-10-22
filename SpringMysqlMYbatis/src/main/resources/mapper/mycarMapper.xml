@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mycar">
+	<!-- 전체갯수얻기 -->
+	<select id="totalCountOfMyCar" resultType="int">
+		select count(*) from carInfo
+	</select>
+	
+	<insert id="insertOfMyCar" parameterType="CarDto">
+		insert into carinfo (carname, carprice, carcolor, carguip) values(#{carname},#{carprice},#{carcolor},#{carguip})
+	</insert>
+	
+	<select id="listOfMyCar" resultType="CarDto">
+		select * from carInfo order by num desc
+	</select>
+	
+	<select id="updateOfMyCar" resultType="CarDto">
+		update * from carInfo 
+	</select>	
+
+</mapper>

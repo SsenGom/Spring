@@ -14,8 +14,16 @@
 		select * from carInfo order by num desc
 	</select>
 	
-	<select id="updateOfMyCar" resultType="CarDto">
-		update * from carInfo 
+	<select id="selectOneOfMycar" resultType="CarDto" parameterType="String" >
+		select * from carInfo where num=#{num}
+	</select>
+	
+	<select id="updateOfMyCar" parameterType="CarDto">
+		update carInfo set carname=#{carname}, carprice=#{carprice}, carcolor=#{carcolor}, carguip=#{carguip} where num=#{num}
 	</select>	
+	
+	<select id="deleteOfMyCar" parameterType="String">
+		delete from carInfo where num=#{num}
+	</select>
 
 </mapper>

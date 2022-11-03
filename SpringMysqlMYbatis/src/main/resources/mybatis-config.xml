@@ -3,5 +3,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="db.mysql.today.MyCarDto" alias="CarDto"/>
+		<typeAlias type="db.mysql.today.CarMemberDto" alias="CarMemDto"/>
 	</typeAliases>
 </configuration>

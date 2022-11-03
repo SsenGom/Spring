@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hoewon">
+   <!-- 전체갯수 -->
+   <select id="selectCountOfHoewon" resultType="int">
+     select count(*) from hoewon
+   </select>
+   <!-- insert -->
+   <insert id="insertOfHoewon" parameterType="hdto">
+     insert into hoewon (name,driver,addr,photo,gaipday) values (#{name},#{driver},#{addr},#{photo},now())
+   </insert>
+   <!-- 회원 전체출력 -->
+   <select id="selectAllOfHoewon" resultType="hdto">
+     select * from hoewon order by num desc
+   </select>
+   <!-- 전체출력 검색포홤 -->
+   <select id="selectAllOfHoewon" resultType="hdto" parameterMap="Map"> <!-- 파라메터타입이 2개 이상이면 map을 적어준다 --> 
+   select * from hoewon
+   <if test="search!=null"> <!-- mybatis는 if문 사용가능 -->
+   where ${title} like concat('%',#{search},'%') <!-- concat은 문자열 합치기 함수  -->
+   </if>
+   order bt num asc
+   </select>
+   
+   <!-- num에 의한 하나의 dto수정 -->
+   <select id="selectOneOfHoewon" parameterType="String" resultType="hdto">
+   	select * from hoewon where num=#{num}
+   </select>
+   <!-- 수정 -->
+   <select id="updateOfHoewon" parameterType="hdto">
+   	update hoewon set name=#{name},driver=#{driver},addr=#{addr},photo=#{photo} where num=#{num}
+   </select>
+   
+</mapper>
